@@ -7,7 +7,7 @@ from app.models import *
 bot = Bot(TELEGRAM_TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, storage=MemoryStorage())
 i18n = I18nMiddleware(I18N_DOMAIN, LOCALES_DIR)
-T = i18n.gettext
+_ = i18n.gettext
 
 def setup() -> None:
     dp.middleware.setup(i18n)

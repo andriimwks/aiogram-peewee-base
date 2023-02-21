@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher import filters, FSMContext
-from app.misc import dp, T
+from app.misc import dp, _
 from app.models import User
 
 @dp.message_handler(
@@ -9,7 +9,7 @@ from app.models import User
     state='*'
 )
 async def cmd_start_private(message: types.Message) -> None:
-    user, _ = User.get_or_create(
+    user, __ = User.get_or_create(
         id=message.from_user.id,
         defaults={
             'first_name': message.from_user.first_name,
@@ -18,15 +18,15 @@ async def cmd_start_private(message: types.Message) -> None:
             'language_code': message.from_user.language_code
         }
     )
-
-    await message.answer(T('Hello, {first_name}!').format(first_name=user.first_name))
+    
+    await message.answer(_('Hello, {first_name}!').format(first_name=user.first_name))
 
 @dp.message_handler(commands=['cancel'])
 async def cmd_cancel(message: types.Message, state: FSMContext) -> None:
-    await message.answer(T('Action canceled.'))
+    await message.answer(_('Action canceled.'))
     await state.finish()
 
 @dp.callback_query_handler(filters.Text(equals='cancel'), state='*')
 async def call_cancel(call: types.CallbackQuery, state: FSMContext) -> None:
-    await call.message.answer(T('Action canceled.'))
+    await call.message.answer(_('Action canceled.'))
     await state.finish()

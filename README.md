@@ -5,6 +5,7 @@
 python -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
+pybabel compile -d locales -D bot
 ```
 
 ## File ".env"

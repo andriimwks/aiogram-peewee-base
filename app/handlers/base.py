@@ -9,7 +9,7 @@ from app.models import User
     state='*'
 )
 async def cmd_start_private(message: types.Message) -> None:
-    user, __ = User.get_or_create(
+    user, created = User.get_or_create(
         id=message.from_user.id,
         defaults={
             'first_name': message.from_user.first_name,
@@ -19,7 +19,10 @@ async def cmd_start_private(message: types.Message) -> None:
         }
     )
     
-    await message.answer(_('Hello, {first_name}!').format(first_name=user.first_name))
+    if created:
+        await message.answer(_('Hello, {first_name}!').format(first_name=user.first_name))
+    else:
+        await message.answer(_('Welcome back, {first_name}!').format(first_name=user.first_name))
 
 @dp.message_handler(commands=['cancel'])
 async def cmd_cancel(message: types.Message, state: FSMContext) -> None:

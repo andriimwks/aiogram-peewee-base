@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-02-21 13:36+0200\n"
-"PO-Revision-Date: 2023-02-21 13:37+0200\n"
+"POT-Creation-Date: 2023-02-28 15:11+0200\n"
+"PO-Revision-Date: 2023-02-28 15:16+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -18,11 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: app/handlers/base.py:22
+#: app/handlers/base.py:23
 msgid "Hello, {first_name}!"
 msgstr ""
 
-#: app/handlers/base.py:26 app/handlers/base.py:31
+#: app/handlers/base.py:25
+msgid "Welcome back, {first_name}!"
+msgstr ""
+
+#: app/handlers/base.py:29 app/handlers/base.py:34
 msgid "Action canceled."
 msgstr ""
 

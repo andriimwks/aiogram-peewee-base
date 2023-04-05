@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher import filters, FSMContext
-from app.misc import dp, _
+from app.misc import dp, gettext as _
 from app.models import User
 
 @dp.message_handler(
